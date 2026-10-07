@@ -47,12 +47,12 @@ app.layout = html.Div(
 def resourceTracker(pathname):
     if pathname == "/tracker":
         if not current_user.is_authenticated:
-            return dcc.Location(
-                href="/",
-                id = "redirect_to_login",
-                refresh= True
-            )
+            return dcc.Location(href="/", id="redirect_to_login", refresh=True)
         return resource_layout
+
+    if current_user.is_authenticated:
+        return dcc.Location(href="/tracker", id="redirect_to_tracker", refresh=True)
+
     return login_layout
 
 @app.callback(
@@ -80,7 +80,8 @@ def login(n_clicks , username , password):
     prevent_initial_call=True
 )
 def logout(n_clicks):
-
+    if not n_clicks:
+        return no_update
     logout_user()
 
     return "/"

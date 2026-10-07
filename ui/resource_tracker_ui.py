@@ -3,14 +3,12 @@ import dash_bootstrap_components as dbc
 # from import_script import getResourceSheet
 import pandas as pd
 from database import getResourceDf
-
-
 resource_df = getResourceDf()
 resource_layout = dbc.Container(
     [
     dcc.Interval(
         id="refresh_interval" , 
-        interval= 5*60*1000,
+        interval= 5*30*1000,
         n_intervals=0
     ),
     dcc.Store(
