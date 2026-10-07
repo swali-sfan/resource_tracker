@@ -5,6 +5,7 @@ from ui.login_ui import login_layout
 from flask_login import current_user , logout_user , login_user
 from auth import login_manager , User
 import json
+import os
 from credentials.passwords import USERS
 
 app = Dash(
@@ -12,7 +13,7 @@ app = Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP] , 
     suppress_callback_exceptions= True
 )
-users = USERS
+users = json.loads(os.environ["USERS"])
 server = app.server
 server.secret_key = "your-secret-key"
 
