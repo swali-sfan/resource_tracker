@@ -18,36 +18,45 @@ resource_layout = dbc.Container(
     ),
     html.Div(
     [
-        # Right-side company name
+        # Right-side company name + logout
         html.Div(
-            "XAD Technologies",
+            [
+                html.Div(
+                    "XAD Technologies",
+                    style={
+                        "color": "#ffffff",
+                        "fontSize": "14px",
+                        "fontWeight": "600",
+                        "padding": "8px 16px",
+                        "border": "1px solid #495057",
+                        "borderRadius": "6px",
+                        "marginBottom": "8px"
+                    }
+                ),
+
+                html.Button(
+                    "Logout",
+                    id="logout-button",
+                    style={
+                        "backgroundColor": "#94121f",
+                        "color": "#ffffff",
+                        "fontSize": "14px",
+                        "fontWeight": "600",
+                        "padding": "8px 16px",
+                        "border": "1px solid #495057",
+                        "borderRadius": "6px",
+                        "marginBottom": "8px"
+                    }
+                )
+            ],
             style={
                 "position": "absolute",
                 "right": "30px",
                 "top": "20px",
-                "color": "#ffffff",
-                "fontSize": "14px",
-                "fontWeight": "600",
-                "padding": "8px 16px",
-                "border": "1px solid #495057",
-                "borderRadius": "6px"
+                "width": "150px"
             }
         ),
-         html.Button(
-                    "Logout",
-                    id="logout-button",
-                    style={
-                        "backgroundColor": "#dc3545",
-                        "color": "#ffffff",
-                        "fontSize": "13px",
-                        "fontWeight": "600",
-                        "padding": "6px 16px",
-                        "border": "none",
-                        "borderRadius": "5px",
-                        "cursor": "pointer",
-                        "width": "100%"
-                    }
-                ),
+
         # Center content
         html.Div(
             [
