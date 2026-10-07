@@ -69,6 +69,18 @@ def login(n_clicks , username , password):
 
     return (no_update , "invalid username or password")
 
+@app.callback(
+    Output("url", "pathname", allow_duplicate=True),
+    Input("logout-button", "n_clicks"),
+    prevent_initial_call=True
+)
+def logout(n_clicks):
+
+    logout_user()
+
+    return "/"
+
+
 register_callbacks(app)
 
 if __name__ =='__main__':
