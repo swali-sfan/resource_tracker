@@ -254,7 +254,7 @@ def register_callbacks(app):
         resource_data = resource_df
         resource_data = resource_data.to_dict("records")
         print(f"length of resource_data {len(resource_data)}")
-        return resource_data.to_dict("records")
+        return resource_data
 
     @app.callback(Output("resource_table" , "data") , 
                   Input("resource_search" , "value") , 
