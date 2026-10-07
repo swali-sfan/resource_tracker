@@ -33,7 +33,21 @@ resource_layout = dbc.Container(
                 "borderRadius": "6px"
             }
         ),
-
+         html.Button(
+                    "Logout",
+                    id="logout-button",
+                    style={
+                        "backgroundColor": "#dc3545",
+                        "color": "#ffffff",
+                        "fontSize": "13px",
+                        "fontWeight": "600",
+                        "padding": "6px 16px",
+                        "border": "none",
+                        "borderRadius": "5px",
+                        "cursor": "pointer",
+                        "width": "100%"
+                    }
+                ),
         # Center content
         html.Div(
             [
