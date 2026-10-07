@@ -14,7 +14,12 @@ app = Dash(
 )
 users = json.loads(os.environ["USERS"])
 server = app.server
-server.secret_key = "your-secret-key"
+server.config.update(
+    SECRET_KEY=os.environ["SECRET_KEY"],
+    SESSION_COOKIE_SECURE=True,
+    SESSION_COOKIE_HTTPONLY=True,
+    SESSION_COOKIE_SAMESITE="Lax"
+)
 
 login_manager.init_app(server)
 login_manager.login_view = "/"

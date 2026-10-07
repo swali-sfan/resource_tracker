@@ -252,6 +252,7 @@ def register_callbacks(app):
     )
     def refresh_database(n_intervals):
         resource_data = getResourceDf()
+        print(f"REFRESH CALLBACK FIRED: {n_intervals}", flush=True)
         resource_data = resource_data.to_dict("records")
         print(f"length of resource_data {len(resource_data)}")
         return resource_data
