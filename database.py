@@ -11,8 +11,13 @@ def getResourceDf():
         data[2:] ,
         columns = data[1]
     )
-    resource_df.rename(columns={resource_df.columns[1] : "Resource Type"} , inplace=True)
-    mask = ((resource_df["Status"] =="Inactive") | (resource_df["Status"].isna()))
+    resource_df["Status"] = resource_df["Status"].astype("string").str.strip()
+
+    mask = (
+        (resource_df["Status"] == "Inactive") |
+        (resource_df["Status"].isna()) |
+        (resource_df["Status"] == "")
+    )
     resource_df = resource_df[~mask]
     return resource_df
 

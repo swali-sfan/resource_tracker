@@ -251,7 +251,7 @@ def register_callbacks(app):
             Input("refresh_interval" , "n_intervals")
     )
     def refresh_database(n_intervals):
-        resource_data = resource_df
+        resource_data = getResourceDf()
         resource_data = resource_data.to_dict("records")
         print(f"length of resource_data {len(resource_data)}")
         return resource_data
