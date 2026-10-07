@@ -253,7 +253,7 @@ def register_callbacks(app):
     def refresh_database(n_intervals):
         resource_data = resource_df
         resource_data = resource_data.to_dict("records")
-        print(len(resource_data))
+        print(f"length of resource_data {len(resource_data)}")
         return resource_data.to_dict("records")
 
     @app.callback(Output("resource_table" , "data") , 
