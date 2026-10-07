@@ -6,7 +6,6 @@ from flask_login import current_user , logout_user , login_user
 from auth import login_manager , User
 import json
 import os
-from credentials.passwords import USERS
 
 app = Dash(
     __name__ ,
