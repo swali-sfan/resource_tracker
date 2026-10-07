@@ -11,6 +11,7 @@ def getResourceDf():
         data[2:] ,
         columns = data[1]
     )
+    resource_df.rename(columns={resource_df.columns[1] : "Resource Type"} , inplace=True)
     resource_df["Status"] = resource_df["Status"].astype("string").str.strip()
 
     mask = (
